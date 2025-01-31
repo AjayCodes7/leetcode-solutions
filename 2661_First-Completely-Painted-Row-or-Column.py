@@ -3,11 +3,14 @@ class Solution:
         location = {}
         m = len(mat)
         n =  len(mat[0])
+
         for i in range(m):
             for j in range(n):
                 location[mat[i][j]] = (i,j)
+
         rows = [0] * m
         cols = [0] * n
+
         for i in range(len(arr)):
             r,c = location[arr[i]]
             rows[r] += 1
