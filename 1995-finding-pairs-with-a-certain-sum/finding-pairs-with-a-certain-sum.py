@@ -3,7 +3,7 @@ class FindSumPairs:
     def __init__(self, nums1: List[int], nums2: List[int]):
         self.numbers2 = nums2
         self.freq1 = Counter(nums1)
-        self.freq2 = Counter(self.numbers2)
+        self.freq2 = Counter(nums2)
 
     def add(self, index: int, val: int) -> None:
         self.freq2[self.numbers2[index]] -= 1
