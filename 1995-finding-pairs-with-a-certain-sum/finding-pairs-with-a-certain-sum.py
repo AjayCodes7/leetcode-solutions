@@ -1,9 +1,8 @@
 class FindSumPairs:
 
     def __init__(self, nums1: List[int], nums2: List[int]):
-        self.numbers1 = nums1
         self.numbers2 = nums2
-        self.freq1 = Counter(self.numbers1)
+        self.freq1 = Counter(nums1)
         self.freq2 = Counter(self.numbers2)
 
     def add(self, index: int, val: int) -> None:
