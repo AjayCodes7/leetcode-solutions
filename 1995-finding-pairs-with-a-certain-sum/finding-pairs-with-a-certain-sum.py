@@ -13,6 +13,8 @@ class FindSumPairs:
     def count(self, tot: int) -> int:
         count = 0
         for i in self.numbers1:
+            if i >= tot:
+                continue
             if tot - i in self.freq:
                 count += self.freq[tot - i]
         return count
