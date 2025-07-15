@@ -4,7 +4,7 @@ class Solution:
         if not (len(word) > 2):
             return False
         # Check if there is a special character
-        if not word.isalnum():
+        if '@' in word or '#' in word  or '$' in word:
             return False
         # Check if there is a vowel
         if not any( i.lower() in ('a','e','i','o','u') for i in word):
