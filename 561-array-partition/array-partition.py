@@ -1,8 +1,9 @@
 class Solution:
     def arrayPairSum(self, nums: List[int]) -> int:
-        nums.sort()
+        flag = True
         result = 0
-        for i in range(len(nums)):
-            if i%2 == 0:
-                result += nums[i]
+        for i in sorted(nums):
+            if flag:
+                result += i
+            flag = not flag
         return result
