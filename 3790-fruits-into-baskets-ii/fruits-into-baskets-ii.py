@@ -1,7 +1,6 @@
 class Solution:
     def numOfUnplacedFruits(self, fruits: List[int], baskets: List[int]) -> int:
         count = 0
-        bucket = {idx:val for idx, val in enumerate(baskets)}
         pool = [i for i in range(len(baskets))]
         for fruit in fruits:
             unset = 1
