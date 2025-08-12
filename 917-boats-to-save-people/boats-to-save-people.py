@@ -9,8 +9,7 @@ class Solution:
             j -= 1
             if people and limit - weight >= people[j]:
                 j -= 1
-                # print("From Here")
-                # return ceil(j-i+1/2) + boats
+                return ceil((j-i+1)/2) + boats
             elif people and limit - weight >= people[i]:
                 i += 1
         return boats
