@@ -5,11 +5,10 @@ class Solution:
         i, j = 0, len(people)-1
         while i <= j:
             boats += 1
-            weight = people[j]
             j -= 1
-            if people and limit - weight >= people[j]:
+            if limit - people[j+1] >= people[j]:
                 j -= 1
                 return ceil((j-i+1)/2) + boats
-            elif people and limit - weight >= people[i]:
+            elif limit - people[j+1] >= people[i]:
                 i += 1
         return boats
