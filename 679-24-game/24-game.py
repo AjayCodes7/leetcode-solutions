@@ -1,7 +1,6 @@
 class Solution:
     def judgePoint24(self, cards: List[int]) -> bool:
-        num_list = [num for num in cards]
-        return self.dfs(num_list)
+        return self.dfs(cards)
 
     def dfs(self, num_list: List[float]) -> bool:
         """ Recursive method to perform depth-first search. """
