@@ -2,20 +2,17 @@ class Solution:
     def judgePoint24(self, cards: List[int]) -> bool:
         return self.dfs(cards)
 
-    def dfs(self, num_list: List[float]) -> bool:
-        """ Recursive method to perform depth-first search. """
-        # If there are no numbers, we cannot perform any operations; return False
-        if not num_list:
-            return False
-        # If there is only one number left, check if it's approximately 24
-        if len(num_list) == 1:
-            return abs(num_list[0] - 24.0) < 1e-6
+    def dfs(self, nums: List[float]) -> bool:
+        # if not nums:
+        #     return False
+        if len(nums) == 1:
+            return abs(nums[0] - 24.0) < 1e-6
         # Try all pairs of numbers with all operations
-        for i in range(len(num_list)):
-            for j in range(i+1, len(num_list)):
+        for i in range(len(nums)):
+            for j in range(i+1, len(nums)):
                 # Perform all operations on the pair (num_list[i], num_list[j])
                 for operation in range(6):
-                    next_list = self.get_next_list(num_list, i, j, operation)
+                    next_list = self.get_next_list(nums, i, j, operation)
                     # If successful combination is found, return True
                     if next_list and self.dfs(next_list):
                         return True
