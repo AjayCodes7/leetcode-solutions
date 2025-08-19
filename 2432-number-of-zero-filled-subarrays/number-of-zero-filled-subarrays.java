@@ -5,13 +5,10 @@ class Solution {
         for(int i = 0; i < nums.length; i++){
             if(nums[i] == 0){
                 temp++;
+                result += temp;
             } else{
-                result += (long)temp*(temp+1)/2;
                 temp = 0;
             }
-        }
-        if(temp != 0){
-            result += (long)temp*(temp+1)/2;
         }
         return result;
     }
