@@ -1,11 +1,11 @@
 class Solution {
     public int minimumArea(int[][] grid) {
         int[] topLeft = new int[2];
-        topLeft[0] = Integer.MAX_VALUE;
-        topLeft[1] = Integer.MAX_VALUE;
+        topLeft[0] = grid.length;
+        topLeft[1] = grid[0].length;
         int[] bottomRight = new int[2];
-        bottomRight[0] = Integer.MIN_VALUE;
-        bottomRight[1] = Integer.MIN_VALUE;
+        bottomRight[0] = -1;
+        bottomRight[1] = -1;
         for(int i = 0;i<grid.length;i++){
             for(int j = 0; j < grid[0].length; j++){
                 if (grid[i][j] == 1){
