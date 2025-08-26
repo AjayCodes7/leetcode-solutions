@@ -6,6 +6,5 @@ class Solution:
             tempDiag = l*l+w*w
             tempArea = l*w
             if (tempDiag, tempArea) > (maxDiag, ans):
-                ans = tempArea
-                maxDiag = tempDiag
+                maxDiag, ans = tempDiag, tempArea
         return ans
