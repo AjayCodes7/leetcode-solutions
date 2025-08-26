@@ -8,7 +8,7 @@ class Solution:
             if tempDiag >= maxDiag:
                 if tempDiag > maxDiag:
                     ans = tempArea
-                else:
-                    ans = max(ans, tempArea)
+                elif tempArea > ans:
+                    ans = tempArea
                 maxDiag = tempDiag
         return ans
