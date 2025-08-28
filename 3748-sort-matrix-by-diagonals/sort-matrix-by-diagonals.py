@@ -1,8 +1,5 @@
 class Solution:
     def sortMatrix(self, grid: List[List[int]]) -> List[List[int]]:
-        # Should have to write a method that takes a list and make it sorted
-        #  - ASC : if y != 0
-        #  - DSC : if y == 0
         
         # Traverse form right -> left(x = 0) and then top -> bottom (y = 0)
         # Need to create a temporary list of every diagonal
