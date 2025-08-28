@@ -7,6 +7,7 @@ class Solution:
         # Traverse form right -> left(x = 0) and then top -> bottom (y = 0)
         # Need to create a temporary list of every diagonal
         # get the sorted list and update the grid
+
         n = len(grid)
 
         x = 0
