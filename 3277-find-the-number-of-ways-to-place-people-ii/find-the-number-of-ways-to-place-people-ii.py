@@ -1,0 +1,18 @@
+class Solution:
+    def numberOfPairs(self, points: List[List[int]]) -> int:
+        points.sort(key =  lambda x:(x[0],-x[1]))
+        result = 0
+        for i in range(len(points)-1):
+            pointA = points[i]
+            xMin = pointA[0] - 1
+            yMin = -math.inf
+            yMax = pointA[1] + 1
+
+            for j in range(i+1, len(points)):
+                pointB = points[j]
+                if (pointB[0] > xMin and pointB[1] > yMin and pointB[1] < yMax):
+                    result += 1
+                    xMin = pointB[0]
+                    yMin = pointB[1]
+
+        return result
