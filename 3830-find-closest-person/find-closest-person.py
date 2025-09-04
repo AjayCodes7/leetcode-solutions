@@ -1,10 +1,10 @@
 class Solution:
     def findClosest(self, x: int, y: int, z: int) -> int:
-        xSteps = abs(x-z)
-        ySteps = abs(y-z)
-        if xSteps == ySteps:
+        xsteps = abs(z-x)
+        ysteps = abs(z-y)
+        if xsteps == ysteps:
             return 0
-        elif xSteps < ySteps:
+        if xsteps < ysteps:
             return 1
         else:
             return 2
