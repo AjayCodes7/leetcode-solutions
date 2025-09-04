@@ -4,7 +4,4 @@ class Solution:
         ySteps = abs(z-y)
         if xSteps == ySteps:
             return 0
-        if xSteps < ySteps:
-            return 1
-        else:
-            return 2
+        return 1 if xSteps < ySteps else 2
