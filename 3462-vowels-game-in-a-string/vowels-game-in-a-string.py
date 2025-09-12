@@ -1,6 +1,3 @@
 class Solution:
     def doesAliceWin(self, s: str) -> bool:
-        for ch in s:
-            if ch in ['a','e','i','o','u']:
-                return True
-        return False
+        return 'a' in s or 'e' in s or 'i' in s or 'o' in s or 'u' in s
