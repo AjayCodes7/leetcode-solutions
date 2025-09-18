@@ -7,12 +7,12 @@ class TaskManager(object):
             self.add(t[0], t[1], t[2])
 
     def add(self, userId, taskId, priority):
-        heapq.heappush(self.heap, (-priority, -taskId))
+        heappush(self.heap, (-priority, -taskId))
         self.taskPriority[taskId] = priority
         self.taskOwner[taskId] = userId
 
     def edit(self, taskId, newPriority):
-        heapq.heappush(self.heap, (-newPriority, -taskId))
+        heappush(self.heap, (-newPriority, -taskId))
         self.taskPriority[taskId] = newPriority
 
     def rmv(self, taskId):
@@ -20,7 +20,7 @@ class TaskManager(object):
 
     def execTop(self):
         while self.heap:
-            negp, negid = heapq.heappop(self.heap)
+            negp, negid = heappop(self.heap)
             p = -negp
             tid = -negid
             if self.taskPriority.get(tid, -2) == p:
