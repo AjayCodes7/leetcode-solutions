@@ -11,17 +11,10 @@ class Spreadsheet {
     }
 
     private int sheetValue(String cell){
-        boolean digit = true;
-        for(int i = 0; i < cell.length(); i++){
-            if(!Character.isDigit(cell.charAt(i))){
-                digit = false;
-                break;
-            }
-        }
-        if(digit) return Integer.parseInt(cell);
+        if(cell.matches("\\d+")) return Integer.parseInt(cell);
         int[] box = cellValue(cell);
         return sheet[box[0]][box[1]];
-    }
+    }   
     
     public void setCell(String cell, int value) {
         int[] box = cellValue(cell);
