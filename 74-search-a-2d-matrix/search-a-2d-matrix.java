@@ -36,7 +36,6 @@ class Solution {
 
     public boolean searchMatrix(int[][] matrix, int target) {
         int idx = binSearchList(matrix, target);
-        System.out.println(idx);
         if(idx == -1){
             return false;
         }
