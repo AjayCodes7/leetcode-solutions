@@ -1,5 +1,6 @@
 class Solution:
     def minimumTotal(self, triangle: List[List[int]]) -> int:
+        # RECURSIVE
         # N = len(triangle)
         # result = [float("inf")]
         # def DFS(currSum, row, idx):
@@ -9,8 +10,9 @@ class Solution:
         #     DFS(currSum + triangle[row][idx], row+1, idx)
         #     DFS(currSum + triangle[row][idx], row+1, idx+1)
         # DFS(0,0,0)
-        # MLE
+        # TLE
 
+        # TOP-DOWN APPROACH (ACCEPTED)
         N = len(triangle)
         dp = [[0]*(i+1) for i in range(N)]
         dp[0][0] = triangle[0][0]
