@@ -13,16 +13,24 @@ class Solution:
         # TLE
 
         # TOP-DOWN APPROACH (ACCEPTED)
+        # N = len(triangle)
+        # dp = [[0]*(i+1) for i in range(N)]
+        # dp[0][0] = triangle[0][0]
+        # for i in range(1, N):
+        #     for j in range(i+1):
+        #         curr = triangle[i][j]
+        #         if j == 0:
+        #             dp[i][j] = dp[i-1][j] + curr
+        #         elif j == i:
+        #             dp[i][j] = dp[i-1][j-1] + curr
+        #         else:
+        #             dp[i][j] = min(dp[i-1][j],dp[i-1][j-1]) + curr
+        # return min(dp[-1])    
+
+        # BOTTOM-UP APPROACH
         N = len(triangle)
-        dp = [[0]*(i+1) for i in range(N)]
-        dp[0][0] = triangle[0][0]
-        for i in range(1, N):
+        dp = [0] * (N+1)
+        for i in range(N-1, -1, -1):
             for j in range(i+1):
-                curr = triangle[i][j]
-                if j == 0:
-                    dp[i][j] = dp[i-1][j] + curr
-                elif j == i:
-                    dp[i][j] = dp[i-1][j-1] + curr
-                else:
-                    dp[i][j] = min(dp[i-1][j],dp[i-1][j-1]) + curr
-        return min(dp[-1])
+                dp[j] = triangle[i][j] + min(dp[j], dp[j+1])
+        return dp[0]
