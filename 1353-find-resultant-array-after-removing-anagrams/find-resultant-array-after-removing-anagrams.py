@@ -3,7 +3,7 @@ class Solution:
         i = 1
         while i < len(words):
             if sorted(words[i]) == sorted(words[i-1]):
-                words.pop(i)
+                words.remove(words[i])
                 continue
             i+=1
         return words
