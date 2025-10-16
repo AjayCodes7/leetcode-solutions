@@ -3,36 +3,17 @@ class Solution {
         Map<Integer, Integer> map = new HashMap<>();
         int key;
         for(int num : nums){
-            key = num%value;
-            key = key >= 0 ? key:key + value;
-            if(map.containsKey(key)){
-                map.put(key, map.get(key) + 1);
-            } else{
-                map.put(key, 1);
-            }
+            key = (num%value + value)%value;
+            map.put(key, map.getOrDefault(key,0) + 1);
         }
-        for(int i = 0; i < nums.length; i++){
-            if(map.containsKey(i)) {
-                map.put(i, map.get(i)-1);
-                if(map.get(i) == 0){
-                    map.remove(i);
-                }
-                continue;
+        int i = 0;
+        while (true) {
+            int rem = i % value;
+            if (!map.containsKey(rem) || map.get(rem) == 0) {
+                return i;
             }
-            else{
-                int find = i % value;
-                if(map.containsKey(find)){
-                    map.put(find, map.get(find)-1);
-                    if(map.get(find) == 0){
-                        map.remove(find);
-                    }
-                    continue;
-                } else{
-                    return i;
-                }
-            }
+            map.put(rem, map.get(rem) - 1);
+            i++;
         }
-        return nums.length;
     }
-
 }
