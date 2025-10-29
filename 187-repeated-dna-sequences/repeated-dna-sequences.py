@@ -6,7 +6,8 @@ class Solution:
         result = set()
         for i in range(len(s)-10 + 1):
             if s[i:i+10] in unique:
-                result.add(s[i:i+10])
+                if s[i:i+10] not in result:
+                    result.add(s[i:i+10])
                 continue
             else:
                 unique.add(s[i:i+10])
