@@ -3,9 +3,8 @@ class Solution:
         currSum = 0
         for i in nums[:k]:
             currSum += i
-        maxAvg = currSum/k
+        maxSum = currSum
         for i in range(1, len(nums) - k + 1):
-            currSum -= nums[i-1]
-            currSum += nums[i + k - 1]
-            maxAvg = max(maxAvg, currSum/k)
-        return maxAvg
+            currSum = currSum - nums[i-1] + nums[i + k - 1]
+            maxSum = max(currSum, maxSum)
+        return maxSum/k
