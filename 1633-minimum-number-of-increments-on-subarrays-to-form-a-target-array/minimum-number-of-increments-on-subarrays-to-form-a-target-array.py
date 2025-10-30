@@ -6,3 +6,5 @@ class Solution:
             if curr > target[i-1]:
                 prev += curr - target[i-1]
         return prev
+
+
