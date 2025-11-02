@@ -11,6 +11,5 @@ class Solution:
             while l < len(nums) and cur_sum + k < nums[r]*(r - l + 1):
                 cur_sum -= nums[l]
                 l += 1
-            if cur_sum + k >= nums[r]*(r - l + 1):
-                result = max(result, r-l+1)
+            result = max(result, r-l+1)
         return result
