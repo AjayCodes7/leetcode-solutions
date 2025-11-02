@@ -5,7 +5,7 @@ class Solution:
         l = 0 
         r = 0
         cur_sum = 0
-        while r < len(nums):
+        for r in range(len(nums)):
             cur_sum += nums[r]
             while l < len(nums) and cur_sum >= target:
                 if cur_sum >= target:
@@ -13,7 +13,6 @@ class Solution:
                     result = min(result, r-l+1)
                 cur_sum -= nums[l]
                 l += 1
-            r += 1
         if flag:
             return result
         return 0
