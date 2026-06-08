@@ -3,7 +3,7 @@ class MyQueue {
     Queue<Integer> queue;
 
     public MyQueue() {
-        this.queue = new ArrayDeque<>();
+        this.queue = new LinkedList<>();
     }
     
     public void push(int x) {
