@@ -28,17 +28,24 @@
 
 class Solution {
     public int minOperations(int[] nums, int x) {
+
         int left = nums.length, right = 0;
         int curr_sum = 0;
+
         while(left > 0 && x - curr_sum - nums[left - 1] >= 0){
             curr_sum += nums[left - 1];
             left--;
         }
+
         int n = nums.length;
         int res = Integer.MAX_VALUE;
+
         if(curr_sum == x) res = n - left;
+
         while(right < left && right < n){
+            
             curr_sum += nums[right++];
+
             while(curr_sum > x && left < nums.length){
                 curr_sum -= nums[left++];
             }
