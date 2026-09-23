@@ -26,41 +26,66 @@
 // }
 // TLE
 
+// class Solution {
+//     public int minOperations(int[] nums, int x) {
+
+//         int left = nums.length, right = 0;
+//         int curr_sum = 0;
+
+//         while(left > 0 && x - curr_sum - nums[left - 1] >= 0){
+//             curr_sum += nums[left - 1];
+//             left--;
+//         }
+
+//         int n = nums.length;
+//         int res = Integer.MAX_VALUE;
+
+//         if(curr_sum == x) res = n - left;
+
+//         while(right < left && right < n){
+
+//             curr_sum += nums[right++];
+
+//             while(curr_sum > x && left < nums.length){
+//                 curr_sum -= nums[left++];
+//             }
+
+//             if(curr_sum == x){
+//                 res = Math.min(res, n - left + right);
+//             }
+//         }
+//         if(res == Integer.MAX_VALUE) return -1;
+//         return res;
+//     }
+// }
+
+
+
+
 class Solution {
     public int minOperations(int[] nums, int x) {
-
-        int left = nums.length, right = 0;
-        int curr_sum = 0;
-
-        while(left > 0 && x - curr_sum - nums[left - 1] >= 0){
-            curr_sum += nums[left - 1];
-            left--;
-        }
-
+        int sum = 0;
+        for(int n : nums) sum += n;
         int n = nums.length;
-        int res = Integer.MAX_VALUE;
-
-        if(curr_sum == x) res = n - left;
-
-        while(right < left && right < n){
-            
-            curr_sum += nums[right++];
-
-            while(curr_sum > x && left < nums.length){
+        if(sum == x) return n;
+        if(sum < x) return -1;
+        int curr_sum = 0;
+        int left = 0, right = 0;
+        int result = Integer.MAX_VALUE;
+        while(right < n && left <= right){
+            curr_sum += nums[right];
+            while(sum - curr_sum < x && left < n){
                 curr_sum -= nums[left++];
             }
-
-            if(curr_sum == x){
-                res = Math.min(res, n - left + right);
+            if(sum - curr_sum == x){
+                result = Math.min(result, n - (right - left + 1));
             }
+            right++;
         }
-        if(res == Integer.MAX_VALUE) return -1;
-        return res;
+        if(result == Integer.MAX_VALUE) return -1;
+        return result;
     }
 }
-
-
-
 
 
 
