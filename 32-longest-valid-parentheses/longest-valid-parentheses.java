@@ -1,15 +1,12 @@
 class Solution {
     public int longestValidParentheses(String s) {
-        // Two Pointers Approach
-
-        int left = 0, right = 0;
-        int state = 0;
+        int right = 0;
         int maxLen = 0;
 
         Stack<Integer> stack = new Stack<>();
         stack.push(-1);
 
-        while(right < s.length() && left <= right){
+        while(right < s.length()){
             if(s.charAt(right) == '('){
                 stack.push(right);
             } else{
