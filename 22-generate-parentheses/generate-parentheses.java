@@ -1,23 +1,29 @@
 class Solution {
     List<String> result = new ArrayList<>();
     int l;
-    public void generateP(String curr, int state){
+    public void generateP(StringBuilder curr, int state){
         if(state < 0) return;
 
         if(curr.length() == l){
             if(state == 0)
-            result.add(curr);
+            result.add(curr.toString());
             return;
         }
 
-        generateP(curr + '(', state + 1);
-        generateP(curr + ')', state - 1);
+        curr.append('(');
+        generateP(curr, state + 1);
+        curr.deleteCharAt(curr.length() - 1);
+        
+        curr.append(')');
+        generateP(curr, state - 1);
+        curr.deleteCharAt(curr.length() - 1);
+
 
     }
 
     public List<String> generateParenthesis(int n) {
         l = n * 2;
-        generateP("", 0);
+        generateP(new StringBuilder(), 0);
         return result;
     }
 }
